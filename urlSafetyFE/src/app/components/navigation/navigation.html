@@ -1,0 +1,29 @@
+<div class="navbar navbar-expand-sm bg-primary navbar-dark fixed-top"> <!--Nav Bar for Application - bar fixed to top of screen-->
+    <span class="navbar-brand position-absolute top-50 start-50 translate-middle">URL Safety Check</span> <!--Title of Application - aligned in center of nav bar-->
+     <ul class="navbar-nav me-auto mb-2 mb-sm-0"> <!--Navigation links algined to left of nav bar-->
+        <li *ngIf="isloggedIn()" class="nav-item nav-url">
+            <a class="nav-link" (click)="resetPageStorage()" [routerLink]="['/submitURL']">
+                Submit URL <!--Navigation link to submit URL page - calls resetPageStorage function to reset page number in session Storage-->
+            </a>
+        </li>
+
+        <li *ngIf="isloggedIn()" class="nav-item nav-reports">
+            <a class="nav-link" (click)="resetPageStorage()" [routerLink]="['/reports']">
+                Safety Reports <!--Navigation link to safety reports page - calls resetPageStorage function to reset page number in session Storage-->
+            </a>
+        </li>
+     </ul>
+     <ul class="navbar-nav ms-auto mb-2 mb-sm-0"><!--Navigation Links aligned to right of nav bar-->
+        <li *ngIf="isAdmin()" class="nav-item nav-admin">
+            <a class="nav-link" (click)="resetPageStorage()" [routerLink]="['/admin']">
+                Admin <!--Navigation link to admin page - calls resetPageStorage function to reset page number in session Storage-->
+            </a>
+        </li>
+
+        <li *ngIf="isloggedIn()" class="nav-item nav-logout">
+            <a class="nav-link" (click)="logout(); resetPageStorage()">
+                Logout <!--Navigation link to log user out - calls logout function to log user out and resetPageStorage function to reset page number in session Storage-->
+            </a>
+        </li>
+     </ul>
+</div> 

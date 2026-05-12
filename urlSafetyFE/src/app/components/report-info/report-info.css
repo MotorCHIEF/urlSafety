@@ -1,0 +1,46 @@
+*{
+    /* Glbal styles for report info componet */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.title
+{
+    /* Titlem for report info page - align center and margin from top */
+    margin-top: 90px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.card
+{
+    /* Card contianer for info - rounded corners and shadow to draw attention to card, paddin for content and margin to keep cards separated*/
+    margin: 75px;
+    padding: 40px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+}
+
+.card-header
+{
+    /* Card hearder - reomve bottom border*/
+    border-bottom: 0;
+}
+
+.btns
+{ /* Container for back button - flex to align button to the center */
+    margin-top: 15px;
+    margin-bottom: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.btn-back
+{ /* Back button - rounded corners and size to make it more prominent */
+    border-radius: 40px;
+    width: 150px;
+    height: 75px;
+    font-weight: bold;
+}

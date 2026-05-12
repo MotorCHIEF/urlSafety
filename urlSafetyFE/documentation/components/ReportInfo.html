@@ -1,0 +1,606 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>url-safety-fe documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">url-safety-fe documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  ReportInfo</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/report-info/report-info.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Report Info Component for Application</p>
+
+    </p>
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-report-info</code></td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                                <code><a href="https://angular.io/api/common/CommonModule" target="_blank" >CommonModule</a></code>
+                                <code><a href="https://angular.io/api/router/RouterModule" target="_blank" >RouterModule</a></code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./report-info.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./report-info.css</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#back" >back</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/components/report-info/report-info.ts:15</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Constructor for report-info.ts file</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>, used to navigate user back to reprort page previously viewing</p>
+
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="back"></a>
+                    <span class="name">
+                        <span ><b>back</b></span>
+                        <a href="#back"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>back()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="28"
+                                    class="link-to-prism">src/app/components/report-info/report-info.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Back function navigates user back to report previously viewing by getting the current report from sessionStorage and navigating to that report</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { RouterModule, Router } from &#x27;@angular/router&#x27;;
+
+/**
+ * Report Info Component for Application
+ */
+@Component({
+  selector: &#x27;app-report-info&#x27;,
+  imports: [CommonModule, RouterModule],
+  templateUrl: &#x27;./report-info.html&#x27;,
+  styleUrl: &#x27;./report-info.css&#x27;,
+})
+export class ReportInfo 
+{
+  /**
+   * Constructor for report-info.ts file
+   * @param router, used to navigate user back to reprort page previously viewing
+   */
+  constructor(private router: Router)
+  {
+
+  }
+
+  /**
+   * Back function navigates user back to report previously viewing by getting the current report from sessionStorage and navigating to that report
+   */
+  back()
+  {
+    this.router.navigate([&#x27;/reports/&#x27;+sessionStorage.getItem(&#x27;currentReport&#x27;)]);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container&quot;&gt;
+    &lt;div class&#x3D;&quot;row&quot;&gt;
+        &lt;div class&#x3D;&quot;col-sm-12&quot;&gt;
+            &lt;div class&#x3D;&quot;title&quot;&gt; &lt;!-- Title page for report info component--&gt;
+                &lt;h1&gt;Report Info&lt;/h1&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;container info&quot;&gt; &lt;!-- Container for info cards--&gt;
+    &lt;div class&#x3D;&quot;row&quot;&gt;
+        &lt;div class&#x3D;&quot;col-sm-12&quot;&gt;
+            &lt;div class&#x3D;&quot;card api&quot;&gt; &lt;!-- Card for google safe web browsing api check info - card-header transparent and flex to align ceter of screen--&gt;
+                &lt;div class&#x3D;&quot;card-header bg-transparent d-flex justify-content-between align-items-center&quot;&gt;
+                    &lt;h5&gt;Google Safe Web Browsing API:&lt;/h5&gt; &lt;!-- Header and weight of api check--&gt;
+                    &lt;strong&gt;40% of the safety score.&lt;/strong&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;card-body&quot;&gt; &lt;!-- Body of api check card, explainig how the check works--&gt;
+                    &lt;p&gt;The safety report check that is performed using the Google Safe Web Browsing API, 
+                        sends the submitted url to google to be checked against a database of known unsafe urls.
+                    &lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class&#x3D;&quot;card sslCert&quot;&gt; &lt;!-- Card for sslCert check info - - card-header transparent and flex to align ceter of screen--&gt;
+                &lt;div class&#x3D;&quot;card-header bg-transparent d-flex justify-content-between align-items-center&quot;&gt;
+                    &lt;h5&gt;SSL Certificate:&lt;/h5&gt; &lt;!-- Header and weight of ssl certificate check--&gt;
+                    &lt;strong&gt;15% of the safety score.&lt;/strong&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;card-body&quot;&gt; &lt;!-- Body of sslCert check card, explainig how the check works--&gt;
+                    &lt;p&gt; The ssl certificate check, verifies if the submitted url is in possession of a SSL/TLS certificate.
+                    A ssl (Secure Socket Layer) certificate is used to ensure an encrypted connection between users and servers.
+                    A tls (Transport Layer Security) is a more updated and secure version of SSL, but security certificates are still refered to as SSL as it is a more common term.
+                    &lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class&#x3D;&quot;card sslExpire&quot;&gt; &lt;!-- Card for sslExpire check info - - card-header transparent and flex to align ceter of screen--&gt;
+                &lt;div class&#x3D;&quot;card-header bg-transparent d-flex justify-content-between align-items-center&quot;&gt;
+                  &lt;h5&gt;SSL Expiration:&lt;/h5&gt; &lt;!-- Header and weight of ssl expiry date check--&gt;
+                  &lt;strong&gt;10% of the safety score.&lt;/strong&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;card-body&quot;&gt; &lt;!-- Body of sslExpire check card, explainig how the check works--&gt;
+                   &lt;p&gt; The ssl expiration check, returns the number of days the ssl certification is valid for the submitted url.
+                    &lt;ul&gt;
+                        &lt;li&gt;A certificate with over 50 days of validity remaining is generally considered Healthy/safe.&lt;/li&gt;
+                        &lt;li&gt;A certificate with more than 30 days of validity remaining is generally considered suspicious/expiring soon.&lt;/li&gt;
+                        &lt;li&gt;A certificate with more than 0 days of validity remaining is generally considered to be very suspicious.&lt;/li&gt;
+                        &lt;li&gt;And a certificate with 0 days of validity remaining is considered expired/dangerous, as it is no longer encrypted.&lt;/li&gt;
+                    &lt;/ul&gt; 
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class&#x3D;&quot;card domainAge&quot;&gt; &lt;!-- Card for domainAge check info - - card-header transparent and flex to align ceter of screen--&gt;
+                &lt;div class&#x3D;&quot;card-header bg-transparent d-flex justify-content-between align-items-center&quot;&gt;
+                    &lt;h5&gt;Domain Age:&lt;/h5&gt; &lt;!-- Header and weight of domain age date check--&gt;
+                    &lt;strong&gt;15% of the safety score&lt;/strong&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;card-body&quot;&gt; &lt;!-- Body of domainAge check card, explainig how the check works--&gt;
+                    &lt;p&gt; The domain age check, returns the number of days the the domian for the submitted url has existed.&lt;/p&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;A domian age of less than 30 days is considered unsafe.&lt;/li&gt;
+                        &lt;li&gt;A domian age of less than 180 days is considered risky.&lt;/li&gt;
+                        &lt;li&gt;A domian age of less than 360 days is considered suspicious.&lt;/li&gt;
+                        &lt;li&gt;And a domian age of more than 360 days is considered safe.&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class&#x3D;&quot;card urlAnalysis&quot;&gt; &lt;!-- Card for urlAnalysis check info - - card-header transparent and flex to align ceter of screen--&gt;
+                &lt;div class&#x3D;&quot;card-header bg-transparent d-flex justify-content-between align-items-center&quot;&gt;
+                    &lt;h5&gt;URL Analysis:&lt;/h5&gt; &lt;!-- Header and weight of url analysis check--&gt;
+                    &lt;strong&gt;20% of the safety score&lt;/strong&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;card-body&quot;&gt; &lt;!-- Body of urlAnalysis check card, explainig how the check works--&gt;
+                    &lt;p&gt; The url analysis checks, analyses the structure of the submitted url for anything suspicous.
+                    The url analysis checks for suspicious keywords and cloud domains stored in the url, some suspicious keywords include:
+                    &lt;/p&gt; 
+                    &lt;ul&gt;
+                        &lt;li&gt;payment&lt;/li&gt;
+                        &lt;li&gt;free&lt;/li&gt;
+                        &lt;li&gt;login&lt;/li&gt;
+                        &lt;li&gt;prize&lt;/li&gt;
+                    &lt;/ul&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;storage.googleapis.com&lt;/li&gt;
+                        &lt;li&gt;amazonaws.com&lt;/li&gt;
+                    &lt;/ul&gt;
+                    &lt;p&gt;These keywords and domains are considered suspicious because they are often used in phishing or malicious websites.&lt;/p&gt;
+                    &lt;p&gt;The number of subdomians in the url and the depth of the url is also considered by counting the number of:&lt;/p&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;dots that appear in the url.&lt;/li&gt;
+                        &lt;li&gt;slashes that appear in the url.&lt;/li&gt;
+                    &lt;/ul&gt;
+                    &lt;p&gt;A url with a high number of subdomains and url depth is consisdered suspicious as cybercriminals often use such url to hide malicious files and malware.&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;btns&quot;&gt; &lt;!--Container for back button--&gt;
+                &lt;button class&#x3D;&quot;btn btn-primary btn-back&quot; type&#x3D;&quot;button&quot; (click)&#x3D;&quot;back()&quot;&gt;
+                    Back
+                &lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis-network.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="container">    <div class="row">        <div class="col-sm-12">            <div class="title"> <!-- Title page for report info component-->                <h1>Report Info</h1>            </div>        </div>    </div></div><div class="container info"> <!-- Container for info cards-->    <div class="row">        <div class="col-sm-12">            <div class="card api"> <!-- Card for google safe web browsing api check info - card-header transparent and flex to align ceter of screen-->                <div class="card-header bg-transparent d-flex justify-content-between align-items-center">                    <h5>Google Safe Web Browsing API:</h5> <!-- Header and weight of api check-->                    <strong>40% of the safety score.</strong>                </div>                <div class="card-body"> <!-- Body of api check card, explainig how the check works-->                    <p>The safety report check that is performed using the Google Safe Web Browsing API,                         sends the submitted url to google to be checked against a database of known unsafe urls.                    </p>                </div>            </div>            <div class="card sslCert"> <!-- Card for sslCert check info - - card-header transparent and flex to align ceter of screen-->                <div class="card-header bg-transparent d-flex justify-content-between align-items-center">                    <h5>SSL Certificate:</h5> <!-- Header and weight of ssl certificate check-->                    <strong>15% of the safety score.</strong>                </div>                <div class="card-body"> <!-- Body of sslCert check card, explainig how the check works-->                    <p> The ssl certificate check, verifies if the submitted url is in possession of a SSL/TLS certificate.                    A ssl (Secure Socket Layer) certificate is used to ensure an encrypted connection between users and servers.                    A tls (Transport Layer Security) is a more updated and secure version of SSL, but security certificates are still refered to as SSL as it is a more common term.                    </p>                </div>            </div>            <div class="card sslExpire"> <!-- Card for sslExpire check info - - card-header transparent and flex to align ceter of screen-->                <div class="card-header bg-transparent d-flex justify-content-between align-items-center">                  <h5>SSL Expiration:</h5> <!-- Header and weight of ssl expiry date check-->                  <strong>10% of the safety score.</strong>                </div>                <div class="card-body"> <!-- Body of sslExpire check card, explainig how the check works-->                   <p> The ssl expiration check, returns the number of days the ssl certification is valid for the submitted url.                    <ul>                        <li>A certificate with over 50 days of validity remaining is generally considered Healthy/safe.</li>                        <li>A certificate with more than 30 days of validity remaining is generally considered suspicious/expiring soon.</li>                        <li>A certificate with more than 0 days of validity remaining is generally considered to be very suspicious.</li>                        <li>And a certificate with 0 days of validity remaining is considered expired/dangerous, as it is no longer encrypted.</li>                    </ul>                 </div>            </div>            <div class="card domainAge"> <!-- Card for domainAge check info - - card-header transparent and flex to align ceter of screen-->                <div class="card-header bg-transparent d-flex justify-content-between align-items-center">                    <h5>Domain Age:</h5> <!-- Header and weight of domain age date check-->                    <strong>15% of the safety score</strong>                </div>                <div class="card-body"> <!-- Body of domainAge check card, explainig how the check works-->                    <p> The domain age check, returns the number of days the the domian for the submitted url has existed.</p>                    <ul>                        <li>A domian age of less than 30 days is considered unsafe.</li>                        <li>A domian age of less than 180 days is considered risky.</li>                        <li>A domian age of less than 360 days is considered suspicious.</li>                        <li>And a domian age of more than 360 days is considered safe.</li>                    </ul>                </div>            </div>            <div class="card urlAnalysis"> <!-- Card for urlAnalysis check info - - card-header transparent and flex to align ceter of screen-->                <div class="card-header bg-transparent d-flex justify-content-between align-items-center">                    <h5>URL Analysis:</h5> <!-- Header and weight of url analysis check-->                    <strong>20% of the safety score</strong>                </div>                <div class="card-body"> <!-- Body of urlAnalysis check card, explainig how the check works-->                    <p> The url analysis checks, analyses the structure of the submitted url for anything suspicous.                    The url analysis checks for suspicious keywords and cloud domains stored in the url, some suspicious keywords include:                    </p>                     <ul>                        <li>payment</li>                        <li>free</li>                        <li>login</li>                        <li>prize</li>                    </ul>                    <ul>                        <li>storage.googleapis.com</li>                        <li>amazonaws.com</li>                    </ul>                    <p>These keywords and domains are considered suspicious because they are often used in phishing or malicious websites.</p>                    <p>The number of subdomians in the url and the depth of the url is also considered by counting the number of:</p>                    <ul>                        <li>dots that appear in the url.</li>                        <li>slashes that appear in the url.</li>                    </ul>                    <p>A url with a high number of subdomains and url depth is consisdered suspicious as cybercriminals often use such url to hide malicious files and malware.</p>                </div>            </div>            <div class="btns"> <!--Container for back button-->                <button class="btn btn-primary btn-back" type="button" (click)="back()">                    Back                </button>            </div>        </div>    </div></div></div>'
+    var COMPONENTS = [{'name': 'Admin', 'selector': 'app-admin'},{'name': 'App', 'selector': 'app-root'},{'name': 'Createuser', 'selector': 'app-createuser'},{'name': 'ForgotPassword', 'selector': 'app-forgot-password'},{'name': 'Login', 'selector': 'app-login'},{'name': 'Navigation', 'selector': 'app-navigation'},{'name': 'Report', 'selector': 'app-report'},{'name': 'ReportInfo', 'selector': 'app-report-info'},{'name': 'Reports', 'selector': 'app-reports'},{'name': 'ResetPassword', 'selector': 'app-reset-password'},{'name': 'SubmitURL', 'selector': 'app-submit-url'},{'name': 'TestWebService', 'selector': 'app-test-web-service'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'ReportInfo'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ReportInfo.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

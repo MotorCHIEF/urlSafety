@@ -1,0 +1,106 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="title"> <!-- Title page for report info component-->
+                <h1>Report Info</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container info"> <!-- Container for info cards-->
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card api"> <!-- Card for google safe web browsing api check info - card-header transparent and flex to align ceter of screen-->
+                <div class="card-header bg-transparent d-flex justify-content-between align-items-center">
+                    <h5>Google Safe Web Browsing API:</h5> <!-- Header and weight of api check-->
+                    <strong>40% of the safety score.</strong>
+                </div>
+                <div class="card-body"> <!-- Body of api check card, explainig how the check works-->
+                    <p>The safety report check that is performed using the Google Safe Web Browsing API, 
+                        sends the submitted url to google to be checked against a database of known unsafe urls.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card sslCert"> <!-- Card for sslCert check info - - card-header transparent and flex to align ceter of screen-->
+                <div class="card-header bg-transparent d-flex justify-content-between align-items-center">
+                    <h5>SSL Certificate:</h5> <!-- Header and weight of ssl certificate check-->
+                    <strong>15% of the safety score.</strong>
+                </div>
+                <div class="card-body"> <!-- Body of sslCert check card, explainig how the check works-->
+                    <p> The ssl certificate check, verifies if the submitted url is in possession of a SSL/TLS certificate.
+                    A ssl (Secure Socket Layer) certificate is used to ensure an encrypted connection between users and servers.
+                    A tls (Transport Layer Security) is a more updated and secure version of SSL, but security certificates are still refered to as SSL as it is a more common term.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card sslExpire"> <!-- Card for sslExpire check info - - card-header transparent and flex to align ceter of screen-->
+                <div class="card-header bg-transparent d-flex justify-content-between align-items-center">
+                  <h5>SSL Expiration:</h5> <!-- Header and weight of ssl expiry date check-->
+                  <strong>10% of the safety score.</strong>
+                </div>
+                <div class="card-body"> <!-- Body of sslExpire check card, explainig how the check works-->
+                   <p> The ssl expiration check, returns the number of days the ssl certification is valid for the submitted url.
+                    <ul>
+                        <li>A certificate with over 50 days of validity remaining is generally considered Healthy/safe.</li>
+                        <li>A certificate with more than 30 days of validity remaining is generally considered suspicious/expiring soon.</li>
+                        <li>A certificate with more than 0 days of validity remaining is generally considered to be very suspicious.</li>
+                        <li>And a certificate with 0 days of validity remaining is considered expired/dangerous, as it is no longer encrypted.</li>
+                    </ul> 
+                </div>
+            </div>
+
+            <div class="card domainAge"> <!-- Card for domainAge check info - - card-header transparent and flex to align ceter of screen-->
+                <div class="card-header bg-transparent d-flex justify-content-between align-items-center">
+                    <h5>Domain Age:</h5> <!-- Header and weight of domain age date check-->
+                    <strong>15% of the safety score</strong>
+                </div>
+                <div class="card-body"> <!-- Body of domainAge check card, explainig how the check works-->
+                    <p> The domain age check, returns the number of days the the domian for the submitted url has existed.</p>
+                    <ul>
+                        <li>A domian age of less than 30 days is considered unsafe.</li>
+                        <li>A domian age of less than 180 days is considered risky.</li>
+                        <li>A domian age of less than 360 days is considered suspicious.</li>
+                        <li>And a domian age of more than 360 days is considered safe.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card urlAnalysis"> <!-- Card for urlAnalysis check info - - card-header transparent and flex to align ceter of screen-->
+                <div class="card-header bg-transparent d-flex justify-content-between align-items-center">
+                    <h5>URL Analysis:</h5> <!-- Header and weight of url analysis check-->
+                    <strong>20% of the safety score</strong>
+                </div>
+                <div class="card-body"> <!-- Body of urlAnalysis check card, explainig how the check works-->
+                    <p> The url analysis checks, analyses the structure of the submitted url for anything suspicous.
+                    The url analysis checks for suspicious keywords and cloud domains stored in the url, some suspicious keywords include:
+                    </p> 
+                    <ul>
+                        <li>payment</li>
+                        <li>free</li>
+                        <li>login</li>
+                        <li>prize</li>
+                    </ul>
+                    <ul>
+                        <li>storage.googleapis.com</li>
+                        <li>amazonaws.com</li>
+                    </ul>
+                    <p>These keywords and domains are considered suspicious because they are often used in phishing or malicious websites.</p>
+                    <p>The number of subdomians in the url and the depth of the url is also considered by counting the number of:</p>
+                    <ul>
+                        <li>dots that appear in the url.</li>
+                        <li>slashes that appear in the url.</li>
+                    </ul>
+                    <p>A url with a high number of subdomains and url depth is consisdered suspicious as cybercriminals often use such url to hide malicious files and malware.</p>
+                </div>
+            </div>
+            <div class="btns"> <!--Container for back button-->
+                <button class="btn btn-primary btn-back" type="button" (click)="back()">
+                    Back
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

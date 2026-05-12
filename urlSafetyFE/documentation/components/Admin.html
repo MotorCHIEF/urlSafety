@@ -1,0 +1,1110 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>url-safety-fe documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">url-safety-fe documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  Admin</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/admin/admin.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Admin Component for Application</p>
+
+    </p>
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">providers</td>
+                <td class="col-md-9">
+                                <code><a href="../injectables/WebService.html" target="_self" >WebService</a></code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-admin</code></td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                                <code><a href="https://angular.io/api/forms/ReactiveFormsModule" target="_blank" >ReactiveFormsModule</a></code>
+                                <code><a href="https://angular.io/api/common/CommonModule" target="_blank" >CommonModule</a></code>
+                                <code><a href="https://angular.io/api/router/RouterModule" target="_blank" >RouterModule</a></code>
+                                <code><a href="https://angular.io/api/forms/FormsModule" target="_blank" >FormsModule</a></code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./admin.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./admin.css</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#currentForm" >currentForm</a>
+                            </li>
+                            <li>
+                                <a href="#deleteURLForm" >deleteURLForm</a>
+                            </li>
+                            <li>
+                                <a href="#deleteUserForm" >deleteUserForm</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#isIncomplete" >isIncomplete</a>
+                            </li>
+                            <li>
+                                <a href="#isInvalid" >isInvalid</a>
+                            </li>
+                            <li>
+                                <a href="#isUntouched" >isUntouched</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onDeleteURL" >onDeleteURL</a>
+                            </li>
+                            <li>
+                                <a href="#onDeleteUser" >onDeleteUser</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(webService: <a href="../injectables/WebService.html" target="_self">WebService</a>, formBuilder: <a href="https://angular.io/api/forms/FormBuilder" target="_blank">FormBuilder</a>, toast: <a href="../injectables/ToastService.html" target="_self">ToastService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/components/admin/admin.ts:33</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Constructor for admin.ts file</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>webService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/WebService.html" target="_self" >WebService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>, used to perform DELETE request to backend for deleting users and user url reports</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>formBuilder</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/forms/FormBuilder" target="_blank" >FormBuilder</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>, used to onstruct forms and validatiion</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>toast</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ToastService.html" target="_self" >ToastService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>, global service used for success and error messages</p>
+
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isIncomplete"></a>
+                    <span class="name">
+                        <span ><b>isIncomplete</b></span>
+                        <a href="#isIncomplete"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isIncomplete()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="135"
+                                    class="link-to-prism">src/app/components/admin/admin.ts:135</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Checks if current active form is invalid or incomplete, used to disable submit button
+Switch statement used to check which form is currently active based on currentForm variable and check if the active form is invalid or has any &#39;pristine&#39; input fields</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>&#39;true&#39; if input fields are invalid or unTouched, otherwise &#39;false&#39; for valid forms ready to submit</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isInvalid"></a>
+                    <span class="name">
+                        <span ><b>isInvalid</b></span>
+                        <a href="#isInvalid"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isInvalid(control: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="103"
+                                    class="link-to-prism">src/app/components/admin/admin.ts:103</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Checks the state of validity for a specific form control
+True only returned if the control is not valid and has been interacted with by an admin
+Switch statement used to check which form is currently active based on currentForm variable and check validity of correct form controls</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>control</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>the name of the form control to check, e.g userID, url</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>true&#39; if control is an error, otherwise false</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isUntouched"></a>
+                    <span class="name">
+                        <span ><b>isUntouched</b></span>
+                        <a href="#isUntouched"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isUntouched()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="119"
+                                    class="link-to-prism">src/app/components/admin/admin.ts:119</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Checks if form has any input fields that have not been interated with be user
+Switch statement used to check which form is currently active based on currentForm variable and check if there are any &#39;pristine&#39; input fields in the active form</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>&#39;true&#39; if there is at least one &#39;pristine&#39; input field, otherwise &#39;false&#39;</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="52"
+                                    class="link-to-prism">src/app/components/admin/admin.ts:52</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Initialize function for forms used in component
+deleteUserForm - useID
+deleteURLForm - userID and url
+All text fields initialized with Validators.required</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onDeleteURL"></a>
+                    <span class="name">
+                        <span ><b>onDeleteURL</b></span>
+                        <a href="#onDeleteURL"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onDeleteURL()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="83"
+                                    class="link-to-prism">src/app/components/admin/admin.ts:83</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Submit delete URL reports function that DELETES user url Report through the WEbService and backend to the database</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onDeleteUser"></a>
+                    <span class="name">
+                        <span ><b>onDeleteUser</b></span>
+                        <a href="#onDeleteUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onDeleteUser()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="67"
+                                    class="link-to-prism">src/app/components/admin/admin.ts:67</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Submit delete user function that DELETES user through the WEbService and backend to the database</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="currentForm"></a>
+                    <span class="name">
+                        <span ><b>currentForm</b></span>
+                        <a href="#currentForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;user&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/components/admin/admin.ts:23</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>currentForm - string variable used for two way binding to determin which form is currently begin used - delete user or delete url report from user</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteURLForm"></a>
+                    <span class="name">
+                        <span ><b>deleteURLForm</b></span>
+                        <a href="#deleteURLForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/components/admin/admin.ts:33</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Form group for deleting URL report from usr - userID and url</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteUserForm"></a>
+                    <span class="name">
+                        <span ><b>deleteUserForm</b></span>
+                        <a href="#deleteUserForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/components/admin/admin.ts:28</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Form group for deleting user - userID</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { WebService } from &#x27;../../services/web-service&#x27;;
+import { ReactiveFormsModule, Validators, FormBuilder, FormsModule } from &#x27;@angular/forms&#x27;;
+import { RouterModule } from &#x27;@angular/router&#x27;;
+import { ToastService } from &#x27;../../services/toast-service&#x27;;
+
+/**
+ * Admin Component for Application
+ */
+@Component({
+  selector: &#x27;app-admin&#x27;,
+  imports: [ReactiveFormsModule, CommonModule, RouterModule, FormsModule],
+  providers: [WebService],
+  templateUrl: &#x27;./admin.html&#x27;,
+  styleUrl: &#x27;./admin.css&#x27;,
+})
+export class Admin 
+{
+  /**
+   * currentForm - string variable used for two way binding to determin which form is currently begin used - delete user or delete url report from user
+   */
+  currentForm: string &#x3D; &#x27;user&#x27;;
+
+  /**
+   * Form group for deleting user - userID
+   */
+  deleteUserForm: any;
+
+  /**
+   * Form group for deleting URL report from usr - userID and url
+   */
+  deleteURLForm: any;
+
+  /**
+   * Constructor for admin.ts file
+   * @param webService, used to perform DELETE request to backend for deleting users and user url reports
+   * @param formBuilder, used to onstruct forms and validatiion
+   * @param toast, global service used for success and error messages
+   */
+  constructor(private webService: WebService, private formBuilder: FormBuilder, private toast: ToastService)
+  {
+    
+  }
+
+  /**
+   * Initialize function for forms used in component
+   * deleteUserForm - useID
+   * deleteURLForm - userID and url
+   * All text fields initialized with Validators.required
+   */
+  ngOnInit()
+  {
+    this.deleteUserForm &#x3D; this.formBuilder.group({
+      userID: [&#x27;&#x27;, Validators.required]
+    });
+
+    this.deleteURLForm &#x3D; this.formBuilder.group({
+      userID: [&#x27;&#x27;, Validators.required],
+      url: [&#x27;&#x27;, Validators.required]
+    });
+  }
+
+  /**
+   * Submit delete user function that DELETES user through the WEbService and backend to the database
+   */
+  onDeleteUser()
+  {
+    this.webService.deleteUser(this.deleteUserForm.value[&#x27;userID&#x27;]).subscribe((response :any) &#x3D;&gt;
+    {
+      this.toast.add(&#x27;Success. User deleted.&#x27;)
+      this.deleteUserForm.reset();
+    },
+    (error) &#x3D;&gt;
+    {
+      this.toast.add(&#x27;Error. Unable to delete user.&#x27;)
+    });
+  }
+
+  /**
+   * Submit delete URL reports function that DELETES user url Report through the WEbService and backend to the database
+   */
+  onDeleteURL()
+  {
+    this.webService.deleteReport(this.deleteURLForm.value).subscribe((response :any) &#x3D;&gt;
+    {
+      this.toast.add(&#x27;Success. User URL report deleted.&#x27;)
+      this.deleteURLForm.reset();
+    },
+    (error) &#x3D;&gt;
+    {
+      this.toast.add(&#x27;Error. Unable to delete user URL report.&#x27;)
+    });
+  }
+
+  /**
+   * Checks the state of validity for a specific form control
+   * True only returned if the control is not valid and has been interacted with by an admin
+   * Switch statement used to check which form is currently active based on currentForm variable and check validity of correct form controls
+   * @param control the name of the form control to check, e.g userID, url
+   * @returns true&#x27; if control is an error, otherwise false
+   */
+  isInvalid(control: any)
+  {
+    switch(this.currentForm)
+    {
+      case &#x27;user&#x27;:
+        return this.deleteUserForm.controls[control].invalid &amp;&amp; this.deleteUserForm.controls[control].touched;
+      case &#x27;url&#x27;:
+        return this.deleteURLForm.controls[control].invalid &amp;&amp; this.deleteURLForm.controls[control].touched;
+    }
+  }
+
+  /**
+   * Checks if form has any input fields that have not been interated with be user
+   * Switch statement used to check which form is currently active based on currentForm variable and check if there are any &#x27;pristine&#x27; input fields in the active form
+   * @returns &#x27;true&#x27; if there is at least one &#x27;pristine&#x27; input field, otherwise &#x27;false&#x27;
+   */
+  isUntouched()
+  {
+    switch(this.currentForm)
+    {
+      case &#x27;user&#x27;:
+        return this.deleteUserForm.controls.userID.pristine
+      case &#x27;url&#x27;:
+        return this.deleteURLForm.controls.userID.pristine || this.deleteURLForm.controls.url.pristine
+    }
+  }
+
+  /**
+   * Checks if current active form is invalid or incomplete, used to disable submit button
+   * Switch statement used to check which form is currently active based on currentForm variable and check if the active form is invalid or has any &#x27;pristine&#x27; input fields
+   * @returns &#x27;true&#x27; if input fields are invalid or unTouched, otherwise &#x27;false&#x27; for valid forms ready to submit
+   */
+  isIncomplete()
+  {
+    switch(this.currentForm)
+    {
+      case &#x27;user&#x27;:
+        return this.isInvalid(&#x27;userID&#x27;) || this.isUntouched()
+      case &#x27;url&#x27;:
+        return this.isInvalid(&#x27;userID&#x27;) || this.isInvalid(&#x27;url&#x27;) || this.isUntouched()
+    }
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container&quot;&gt;
+    &lt;div class&#x3D;&quot;row&quot;&gt;
+        &lt;div class&#x3D;&quot;col-sm-12&quot;&gt;
+            &lt;div class&#x3D;&quot;title&quot;&gt;
+                &lt;h1&gt;Admin&lt;/h1&gt; &lt;!-- Title for Admin page--&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;container admin&quot;&gt; &lt;!-- Container for admin forms--&gt;
+    &lt;div class&#x3D;&quot;row&quot;&gt;
+        &lt;div class&#x3D;&quot;col-sm-12&quot;&gt;
+            &lt;select [(ngModel)]&#x3D;&quot;currentForm&quot;&gt; &lt;!-- Dropdown box to select which form to use--&gt;
+                &lt;option value&#x3D;&quot;user&quot;&gt;Delete User&lt;/option&gt;
+                &lt;option value&#x3D;&quot;url&quot;&gt;Delete Safety Report from user account&lt;/option&gt;
+            &lt;/select&gt;
+            &lt;ng-container&gt; &lt;!--Container for delting user from db --&gt;
+                &lt;form *ngIf&#x3D;&quot;currentForm &#x3D;&#x3D;&#x3D; &#x27;user&#x27;&quot; [formGroup]&#x3D;&quot;deleteUserForm&quot; (ngSubmit)&#x3D;&quot;onDeleteUser()&quot; (keydown.enter)&#x3D;&quot;$event.preventDefault()&quot;&gt;
+                   &lt;div class&#x3D;&quot;form-group&quot;&gt;
+                        &lt;label for&#x3D;&quot;userID&quot;&gt;UserID:&lt;/label&gt; &lt;!--INput field for userID--&gt;
+                        &lt;input type&#x3D;&quot;text&quot; name&#x3D;&quot;userID&quot; placeholder&#x3D;&quot;UserID&quot; id&#x3D;&quot;userID&quot; class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;userID&quot;
+                            [ngClass]&#x3D;&quot;{ &#x27;error&#x27; : isInvalid(&#x27;userID&#x27;) }&quot;&gt;
+                   &lt;/div&gt;
+                   &lt;div class&#x3D;&quot;btns&quot;&gt;
+                        &lt;div class&#x3D;&quot;back&quot;&gt; &lt;!--Back button to navigate to submit url page--&gt;
+                            &lt;button class&#x3D;&quot;btn btn-primary btn-back&quot; type&#x3D;&quot;button&quot; [routerLink]&#x3D;&quot;[&#x27;/submitURL&#x27;]&quot;&gt;
+                                Back
+                            &lt;/button&gt;
+                        &lt;/div&gt;
+                        &lt;div class&#x3D;&quot;btn-delete&quot;&gt; &lt;!--Submit button to delete user, disabled if form is incomplete--&gt;
+                            &lt;button [disabled]&#x3D;&quot;isIncomplete()&quot; class&#x3D;&quot;btn btn-primary btn-delete&quot; type&#x3D;&quot;submit&quot;&gt;
+                                Delete
+                            &lt;/button&gt;
+                        &lt;/div&gt;
+                   &lt;/div&gt; 
+                &lt;/form&gt;
+            &lt;/ng-container&gt;
+
+            &lt;ng-container&gt;&lt;!-- Container for deleting url reports from users--&gt;
+                &lt;form *ngIf&#x3D;&quot;currentForm &#x3D;&#x3D;&#x3D; &#x27;url&#x27;&quot; [formGroup]&#x3D;&quot;deleteURLForm&quot; (ngSubmit)&#x3D;&quot;onDeleteURL()&quot; (keydown.enter)&#x3D;&quot;$event.preventDefault()&quot;&gt;
+                   &lt;div class&#x3D;&quot;form-group&quot;&gt;
+                        &lt;label for&#x3D;&quot;userID&quot;&gt;UserID:&lt;/label&gt; &lt;!--Input field for userID--&gt;
+                        &lt;input type&#x3D;&quot;text&quot; name&#x3D;&quot;userID&quot; placeholder&#x3D;&quot;UserID&quot; id&#x3D;&quot;userID&quot; class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;userID&quot;
+                            [ngClass]&#x3D;&quot;{ &#x27;error&#x27; : isInvalid(&#x27;userID&#x27;) }&quot;&gt;
+                   &lt;/div&gt;
+                   &lt;div class&#x3D;&quot;form-group&quot;&gt;
+                        &lt;label for&#x3D;&quot;url&quot;&gt;URL:&lt;/label&gt;&lt;!--Input field for url--&gt;
+                        &lt;input type&#x3D;&quot;text&quot; name&#x3D;&quot;url&quot; placeholder&#x3D;&quot;URL&quot; id&#x3D;&quot;url&quot; class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;url&quot;
+                            [ngClass]&#x3D;&quot;{ &#x27;error&#x27; : isInvalid(&#x27;url&#x27;) }&quot;&gt;
+                   &lt;/div&gt;
+                   &lt;div class&#x3D;&quot;btns&quot;&gt;
+                        &lt;div class&#x3D;&quot;back&quot;&gt; &lt;!--Back button to navigate to submit url page--&gt;
+                            &lt;button class&#x3D;&quot;btn btn-primary btn-back&quot; type&#x3D;&quot;button&quot; [routerLink]&#x3D;&quot;[&#x27;/submitURL&#x27;]&quot;&gt;
+                                Back
+                            &lt;/button&gt;
+                        &lt;/div&gt;
+                        &lt;div class&#x3D;&quot;btn-delete&quot;&gt;&lt;!--Submit button to delete user, disabled if form is incomplete--&gt;
+                            &lt;button [disabled]&#x3D;&quot;isIncomplete()&quot; class&#x3D;&quot;btn btn-primary btn-delete&quot; type&#x3D;&quot;submit&quot;&gt;
+                                Delete
+                            &lt;/button&gt;
+                        &lt;/div&gt;
+                   &lt;/div&gt; 
+                &lt;/form&gt;
+            &lt;/ng-container&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis-network.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="container">    <div class="row">        <div class="col-sm-12">            <div class="title">                <h1>Admin</h1> <!-- Title for Admin page-->            </div>        </div>    </div></div><div class="container admin"> <!-- Container for admin forms-->    <div class="row">        <div class="col-sm-12">            <select [(ngModel)]="currentForm"> <!-- Dropdown box to select which form to use-->                <option value="user">Delete User</option>                <option value="url">Delete Safety Report from user account</option>            </select>            <ng-container> <!--Container for delting user from db -->                <form *ngIf="currentForm === \'user\'" [formGroup]="deleteUserForm" (ngSubmit)="onDeleteUser()" (keydown.enter)="$event.preventDefault()">                   <div class="form-group">                        <label for="userID">UserID:</label> <!--INput field for userID-->                        <input type="text" name="userID" placeholder="UserID" id="userID" class="form-control" formControlName="userID"                            [ngClass]="{ \'error\' : isInvalid(\'userID\') }">                   </div>                   <div class="btns">                        <div class="back"> <!--Back button to navigate to submit url page-->                            <button class="btn btn-primary btn-back" type="button" [routerLink]="[\'/submitURL\']">                                Back                            </button>                        </div>                        <div class="btn-delete"> <!--Submit button to delete user, disabled if form is incomplete-->                            <button [disabled]="isIncomplete()" class="btn btn-primary btn-delete" type="submit">                                Delete                            </button>                        </div>                   </div>                 </form>            </ng-container>            <ng-container><!-- Container for deleting url reports from users-->                <form *ngIf="currentForm === \'url\'" [formGroup]="deleteURLForm" (ngSubmit)="onDeleteURL()" (keydown.enter)="$event.preventDefault()">                   <div class="form-group">                        <label for="userID">UserID:</label> <!--Input field for userID-->                        <input type="text" name="userID" placeholder="UserID" id="userID" class="form-control" formControlName="userID"                            [ngClass]="{ \'error\' : isInvalid(\'userID\') }">                   </div>                   <div class="form-group">                        <label for="url">URL:</label><!--Input field for url-->                        <input type="text" name="url" placeholder="URL" id="url" class="form-control" formControlName="url"                            [ngClass]="{ \'error\' : isInvalid(\'url\') }">                   </div>                   <div class="btns">                        <div class="back"> <!--Back button to navigate to submit url page-->                            <button class="btn btn-primary btn-back" type="button" [routerLink]="[\'/submitURL\']">                                Back                            </button>                        </div>                        <div class="btn-delete"><!--Submit button to delete user, disabled if form is incomplete-->                            <button [disabled]="isIncomplete()" class="btn btn-primary btn-delete" type="submit">                                Delete                            </button>                        </div>                   </div>                 </form>            </ng-container>        </div>    </div></div></div>'
+    var COMPONENTS = [{'name': 'Admin', 'selector': 'app-admin'},{'name': 'App', 'selector': 'app-root'},{'name': 'Createuser', 'selector': 'app-createuser'},{'name': 'ForgotPassword', 'selector': 'app-forgot-password'},{'name': 'Login', 'selector': 'app-login'},{'name': 'Navigation', 'selector': 'app-navigation'},{'name': 'Report', 'selector': 'app-report'},{'name': 'ReportInfo', 'selector': 'app-report-info'},{'name': 'Reports', 'selector': 'app-reports'},{'name': 'ResetPassword', 'selector': 'app-reset-password'},{'name': 'SubmitURL', 'selector': 'app-submit-url'},{'name': 'TestWebService', 'selector': 'app-test-web-service'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'Admin'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'Admin.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

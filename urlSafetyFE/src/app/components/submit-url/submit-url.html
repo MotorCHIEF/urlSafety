@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="title"> <!-- Title for submit url page-->
+                <h1>Submit URL</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container submit-url"> <!-- Container for submit url form-->
+    <div class="row">
+        <div class="col-sm-12">
+            <ng-container>
+                <form [formGroup]="submitForm" (ngSubmit)="onSubmit()" (keydown.enter)="$event.preventDefault()">
+                    <div class="form-group url">
+                        <label for="url">Enter URL:</label> <!-- Input field for url-->
+                        <input type="url" placeholder="URL" name="url" id="url" class="form-control" formControlName="url"
+                            [ngClass]="{ 'error' : isInvalid('url') }">
+                    </div>
+                    <div class="btns"> <!-- Container for submit button and disclaimer-->
+                        <button [disabled]="isIncomplete() || isAnanlysing" class="btn btn-primary" type="submit">
+                            <span *ngIf="isAnanlysing" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                            {{isAnanlysing ? 'Analysing ...' : 'Analyse'}} <!--isAnslysing = true submit button switches text and features a spinner-->
+                        </button>
+                        <p class="mt-3 text-muted small"> <!-- Disclaimer - legal requirement this software is not allowed to guarntee safety-->
+                            *Disclaimer: This tool provides a safety estimation based on publicly available data. 
+                            It does not guarantee 100% Accuracy or Safety. Use links at your own risk.
+                        </p>
+                    </div>
+                </form>
+            </ng-container>
+        </div>
+    </div>
+</div>

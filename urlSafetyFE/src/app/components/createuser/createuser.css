@@ -1,0 +1,83 @@
+*{ /* Global styles fr create user copmponent*/
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.title
+{ 
+    /* Title for create user page - align center and add margin from top*/
+    margin-top: 80px;
+    text-align: center;
+}
+
+.create-user
+{ 
+    /* Container for create user form - centerd on page with rounded corners and shadow to draw attention to form*/
+    margin: 50px auto;
+    max-width: 750px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    padding: 40px;
+    border: 1px solid #e0e0e0;
+}
+
+label
+{
+    /* Labels for input fields - displayed to left of input fields */
+    display: block;
+    text-align: left;
+}
+
+.form-control
+{
+    /** Input fields or create user form - full width of creat-user container with rounded corners*/
+    height: 40px;
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.createUser
+{
+    /* Container for submit button and message if form is incomplete - aligned to right of form and flex to allow message to be above button*/
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.btns
+{
+    /* button container - flex to allow buttons to be side by side */
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.btn-primary
+{
+    /* Styles for btn-primary class -used byt back and submit buttons - rounded corners */
+    border-radius: 25px;
+    width: 200px;
+    height: 50px;
+    font-weight: bold;
+}
+
+.btn-back
+{
+    /* Style for back button - smaller than submit button, rounded corners */
+    border-radius: 25px;
+    width: 150px;
+    height: 35px;
+    font-weight: bold;
+}
+
+.error 
+{
+    /* Error state for input fields - red border and light red background */
+    background-color: #fff0f0;
+}
+

@@ -1,0 +1,68 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="title">
+                <h1>Admin</h1> <!-- Title for Admin page-->
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container admin"> <!-- Container for admin forms-->
+    <div class="row">
+        <div class="col-sm-12">
+            <select [(ngModel)]="currentForm"> <!-- Dropdown box to select which form to use-->
+                <option value="user">Delete User</option>
+                <option value="url">Delete Safety Report from user account</option>
+            </select>
+            <ng-container> <!--Container for delting user from db -->
+                <form *ngIf="currentForm === 'user'" [formGroup]="deleteUserForm" (ngSubmit)="onDeleteUser()" (keydown.enter)="$event.preventDefault()">
+                   <div class="form-group">
+                        <label for="userID">UserID:</label> <!--INput field for userID-->
+                        <input type="text" name="userID" placeholder="UserID" id="userID" class="form-control" formControlName="userID"
+                            [ngClass]="{ 'error' : isInvalid('userID') }">
+                   </div>
+                   <div class="btns">
+                        <div class="back"> <!--Back button to navigate to submit url page-->
+                            <button class="btn btn-primary btn-back" type="button" [routerLink]="['/submitURL']">
+                                Back
+                            </button>
+                        </div>
+                        <div class="btn-delete"> <!--Submit button to delete user, disabled if form is incomplete-->
+                            <button [disabled]="isIncomplete()" class="btn btn-primary btn-delete" type="submit">
+                                Delete
+                            </button>
+                        </div>
+                   </div> 
+                </form>
+            </ng-container>
+
+            <ng-container><!-- Container for deleting url reports from users-->
+                <form *ngIf="currentForm === 'url'" [formGroup]="deleteURLForm" (ngSubmit)="onDeleteURL()" (keydown.enter)="$event.preventDefault()">
+                   <div class="form-group">
+                        <label for="userID">UserID:</label> <!--Input field for userID-->
+                        <input type="text" name="userID" placeholder="UserID" id="userID" class="form-control" formControlName="userID"
+                            [ngClass]="{ 'error' : isInvalid('userID') }">
+                   </div>
+                   <div class="form-group">
+                        <label for="url">URL:</label><!--Input field for url-->
+                        <input type="text" name="url" placeholder="URL" id="url" class="form-control" formControlName="url"
+                            [ngClass]="{ 'error' : isInvalid('url') }">
+                   </div>
+                   <div class="btns">
+                        <div class="back"> <!--Back button to navigate to submit url page-->
+                            <button class="btn btn-primary btn-back" type="button" [routerLink]="['/submitURL']">
+                                Back
+                            </button>
+                        </div>
+                        <div class="btn-delete"><!--Submit button to delete user, disabled if form is incomplete-->
+                            <button [disabled]="isIncomplete()" class="btn btn-primary btn-delete" type="submit">
+                                Delete
+                            </button>
+                        </div>
+                   </div> 
+                </form>
+            </ng-container>
+        </div>
+    </div>
+</div>

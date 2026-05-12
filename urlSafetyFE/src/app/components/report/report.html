@@ -1,0 +1,100 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="title"> <!-- Title for report page-->
+                <h1>Safety Report</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container report"> <!-- Container for report page-->
+    <div class="row justify-content-center">
+        <div class="col-sm-12">
+            @for(report of reportList; track report.url)
+            {
+                <div class="row align-items-center mb-4"> <!-- Row to display url, verdict and safety score -->
+                    <div class="col-lg-5 url">
+                        <h4 class="text-muted mb-1">URL:</h4> <!-- Display url submited-->
+                        <h5 class="fw-bold text-break">{{report.url}}</h5>
+                    </div>
+
+                    <div class="col-lg-3 verdict text-align-center"> <!-- Display verdict of report - getTextClass function to assign colour to text-->
+                        <h3 class="fw-bold" [ngClass]="getTextClass(report.safetyScore)">
+                            {{report.verdict}}
+                        </h3>
+                    </div>
+
+                    <div class="col-lg-4 safetyScore d-flex flex-column align-items-center"> <!-- Display safery score of report in a progress circle - - getScoreClass function to assign colour to circle-->
+                        <div class="progress-circle" [style.--score]="report.safetyScore" [ngClass]="getScoreClass(report.safetyScore)">
+                            <span>{{report.safetyScore}}/100</span>
+                        </div>
+                        <strong class="mt-2">Safety Score</strong>
+                    </div>
+                </div> <!--Disclaimer to remind users this software does not guarantee safety - aligned center-->
+                <p class="mt-3 text-muted small d-flex flex-column align-items-center">
+                            *Disclaimer: This tool provides a safety estimation based on publicly available data. 
+                            It does not guarantee 100% Accuracy or Safety. Use links at your own risk.
+                        </p>
+                <hr class="my-4" style="opacity: 0.1;">
+
+                <div class="row g-4"> 
+                    <div class="col-lg-6">
+                        <div class="detail-row"><!-- Display details of report in two coloums-->
+                            <span class="label">Google Safe Web Browsing:</span> <!-- Display result of goole api check-->
+                            <span class="value fw-bold">{{ report.analysis.api }}</span>  
+                        </div>
+
+                        <div class="detail-row">
+                            <span class="label">SSL Certificate:</span><!-- Display result of sslCert check-->
+                            <span class="value fw-bold">{{ report.analysis.sslCert }}</span>
+                        </div>
+
+                        <div class="detail-row">
+                            <span class="label">SSL Expiration:</span> <!-- Display result of sslExpire check-->
+                            <span class="value fw-bold">{{ report.analysis.sslExpire }} days</span>
+                        </div>
+
+                        <div class="detail-row">
+                            <span class="label">Domain Age (Days):</span> <!-- Display result of domainAge check-->
+                            <span class="value fw-bold">{{ report.analysis.domainAge }}</span>
+                        </div>
+
+                        <div class="detail-row">
+                            <span class="label">URL Analysis:</span> <!-- Display result of urlAnalysis check-->
+                            <span class="value text-muted">{{ report.analysis.urlAnalysis }}</span>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-6 border-start-lg">
+                        <div class="detail-row"> <!-- Display, orignal submission date, update date and prievious saafety score-->
+                            <span class="label">Previous Safety Score:</span> <!-- Display previous safety score-->
+                            <span class="value fw-bold">{{ report.previousScore }} of 100</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="label">Date First Submitted:</span> <!-- Display date of first submission-->
+                            <span class="value fw-bold">{{ report.dateSubmitted }}</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="label">Date Updated:</span> <!--Display date of last update-->
+                            <span class="value fw-bold">{{ report.dateUpdated }}</span>
+                        </div>
+
+                        <div class="btns d-flex gap-3 mt-5"> <!-- Containr for buttons-->
+                            <div class="reportInfo"> <!--Button to navigate to report-info page-->
+                                <button class="btn btn-primary btn-reportInfo" type="button" [routerLink]="['/info']">
+                                    Report Info
+                                </button>
+                            </div>
+                            <div class="back"> <!-- Back button to navigate to reports page-->
+                                <button class="btn btn-primary btn-back" type="button" [routerLink]="['/reports']">
+                                    Back 
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

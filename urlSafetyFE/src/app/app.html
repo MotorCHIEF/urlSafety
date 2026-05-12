@@ -1,0 +1,10 @@
+<app-navigation></app-navigation><!--Global HTML Properties-->
+<router-outlet></router-outlet>
+<!--Toast Container for success and error messages-->
+<div class="toast-container" style="position: fixed; top: 90px; right: 20px; z-index: 1200;">
+    <div *ngFor="let toast of toastService.toasts; let i = index;" [ngClass]="toastService.successMessage(toast)" class="toast show text-white" role="alert">
+        <div class="toast-body">
+            {{toast}}
+        </div>
+    </div>
+</div>

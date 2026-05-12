@@ -1,0 +1,69 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="title"> <!--Title for reports Page-->
+                <h1>Safety Reports</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container reports"> <!--Container for reports page-->
+    <div class="row">
+        <div class="col-sm-12"> <!--Track reports-->
+            @for(report of reportList; track report.url) { <!-- Card for reports - likn to report page by geting report id-->
+                <div class="card  shadow-sm" style="cursor: pointer" [routerLink]="['/reports', report._id]" 
+                     [ngClass]="report.verdict === 'SAFE' ? 'border-success' : 'border-danger'">
+                    <!--Card - flex to align center and transparent background-->
+                    <div class="card-header bg-transparent d-flex justify-content-between align-items-center">
+                        <strong class="text-truncate" style="max-width: 85%;">
+                            <span class="sm-2">{{ report.url }}</span><!--URL of the report-->
+                        </strong>
+                    </div>
+                    <div class="card-body"> <!-- Card body - align text center-->
+                        <div class="row align-items-center">
+                            <div class="col-8 text-start">
+                                <h5 class="card-title">
+                                    <strong>Verdict:</strong> <!-- verdict of report - getTextClass to set text colour-->
+                                    <span [ngClass]="getTextClass(report.safetyScore)">
+                                        {{ report.verdict }}
+                                    </span>
+                                </h5>
+                                <p class="card-text sm-1"> <!-- Result of api check-->
+                                    <strong>Google Safe Browsing:</strong> {{ report.analysis.api }}
+                                </p>
+                                <p class="card-text"> <!--Result of ssCert checck-->
+                                    <strong>SSL Certificate:</strong> {{ report.analysis.sslCert }}
+                                </p>
+                            </div>
+                            <div class="col-4 text-center border-start"> <!-- safety score of report - getTextClass to set text colour-->
+                                <div class="display-4 fw-bold" [ngClass]="getTextClass(report.safetyScore)">
+                                    {{ report.safetyScore }}
+                                </div>
+                                <div class="text-muted small">Safety Score</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-transparent border-0 text-end">
+                        <p>Read Full Report</p>
+                    </div>
+                </div>
+            }
+            <div class="row">
+                <div class="btns"><!--Buttons container-->
+                    <div class="btnPrev"><!-- Previous button - navigate to previous page of reports-->
+                        <button class="btn btn-primary btn-prev" (click)="previousPage()">
+                            Previous
+                        </button>
+                    </div> <!--Display - current page and last page-->
+                    <label>Page {{this.page}} of {{this.lastPage}}</label>
+                    <div class="btnNext"><!-- Next button - navigate to next page of reports-->
+                        <button class="btn btn-primary btn-next" (click)="nextPage()">
+                            Next
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

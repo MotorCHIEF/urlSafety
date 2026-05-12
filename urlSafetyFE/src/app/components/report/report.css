@@ -1,0 +1,119 @@
+*{
+    /* Global styles for report component*/
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.title
+{
+    /* Title stule for report page - align center and margin from top*/
+    margin-top: 90px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.report
+{
+    /* Contianer ofr report details - padding to spearate elements, rounded corners and shadow*/
+    padding: 40px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+}
+
+.detail-row
+{
+    /* Class for rows of report detials - flex to aligne label and value on same line, justify-content so label on left and value on right*/
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.label 
+{
+    /* Label for report page*/
+    font-weight: bold;
+    color: #444;
+}
+
+.value 
+{
+    /* Valus for report details - align right*/
+    text-align: right;
+}
+
+.progress-circle 
+{
+    /* Progess circle for safety score - set size and rounded to make a circle*/
+    position: relative;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    /* This gradient uses the --score variable to paint the percentage */
+    background: conic-gradient(
+        var(--color) calc(var(--score) * 1%), 
+        #f0f0f0 0deg
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* The inner white circle to make it a donut */
+.progress-circle::before 
+{
+    /* Samller circle inside larger cirle to create donut effect*/
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.progress-circle span 
+{
+    /* The text inside the donut */
+    position: relative;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #000;
+}
+
+.progress-circle.green 
+{
+    --color: #28a745; /* Bootstrap Success Green */
+}
+
+.progress-circle.orange 
+{
+    --color: #fd7e14; /* Bootstrap standard orange */
+}
+
+.progress-circle.red 
+{
+    --color: #dc3545; /* Bootstrap Danger Red */
+}
+
+.btns
+{
+    /*Button contianer*/
+    justify-content: end;
+}
+
+.btn-reportInfo
+{
+    /*Button to report-info page - set size and rounded corners*/
+    width: 120px;
+    height: 50px;
+    font-weight: bold;
+    border-radius: 25px;
+}
+
+.btn-back
+{
+    /*Button to reports page - set size and rounded corners*/
+    width: 200px;
+    height: 65px;
+    font-weight: bold;
+    border-radius: 40px;
+}

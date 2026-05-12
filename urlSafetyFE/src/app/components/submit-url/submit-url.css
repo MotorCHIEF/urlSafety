@@ -1,0 +1,64 @@
+*{
+    /* Global styles for submit url component*/
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.title
+{
+    /* Title style for sumbit url - centered on page with margin from top*/
+    margin-top: 100px;
+    text-align: center;
+}
+
+.submit-url
+{
+    /* Container for submit url form - centered on page with rounded corners and shadow, paddin to separate contaienr content*/
+    margin: 100px auto;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    padding: 40px;
+    border: 1px solid #e0e0e0;
+}
+
+label
+{
+    /* Lable for url input field - align to left of input field*/
+    display: block;
+    text-align: left;
+}
+
+.form-control
+{
+    /* Input field for url - rounded corners */ 
+    height: 60px;
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.btns
+{
+    /* Contianer for submit button and disclaimer - flex to center alignment and gap to separate */
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.btn-primary
+{
+    /* Submit button - size set and rounded corners*/
+    border-radius: 40px;
+    width: 250px;
+    height: 75px;
+    font-weight: bold;
+}
+
+.error 
+{
+    /* Error state for input field - red border and light red background */
+    background-color: #fff0f0;
+}

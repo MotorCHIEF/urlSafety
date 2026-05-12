@@ -1,0 +1,1080 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>url-safety-fe documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">url-safety-fe documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  Reports</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/reports/reports.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Reports Component for Application</p>
+
+    </p>
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">providers</td>
+                <td class="col-md-9">
+                                <code><a href="../injectables/WebService.html" target="_self" >WebService</a></code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-reports</code></td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                                <code><a href="https://angular.io/api/router/RouterModule" target="_blank" >RouterModule</a></code>
+                                <code><a href="https://angular.io/api/common/CommonModule" target="_blank" >CommonModule</a></code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./reports.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./reports.css</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#lastPage" >lastPage</a>
+                            </li>
+                            <li>
+                                <a href="#page" >page</a>
+                            </li>
+                            <li>
+                                <a href="#pageSize" >pageSize</a>
+                            </li>
+                            <li>
+                                <a href="#reportList" >reportList</a>
+                            </li>
+                            <li>
+                                <a href="#totalReports" >totalReports</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#getTextClass" >getTextClass</a>
+                            </li>
+                            <li>
+                                <a href="#nextPage" >nextPage</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#previousPage" >previousPage</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(webService: <a href="../injectables/WebService.html" target="_self">WebService</a>, toast: <a href="../injectables/ToastService.html" target="_self">ToastService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/components/reports/reports.ts:44</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Constructor for report.ts file</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>webService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/WebService.html" target="_self" >WebService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>, used to perform GETs request to backend</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>toast</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ToastService.html" target="_self" >ToastService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>, global service used for success and error messages</p>
+
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getTextClass"></a>
+                    <span class="name">
+                        <span ><b>getTextClass</b></span>
+                        <a href="#getTextClass"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getTextClass(score: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="131"
+                                    class="link-to-prism">src/app/components/reports/reports.ts:131</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>getTextClass - function to set text colour of safety verdict and safety score based on safety score value</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>score</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>safety score of the report used to determine colour of the text</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>if score &gt;= 70 returns text-success (green), if score &gt;= 40 returns text-warning (orange) and if score &lt; 40 returns text-danger (red)</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="nextPage"></a>
+                    <span class="name">
+                        <span ><b>nextPage</b></span>
+                        <a href="#nextPage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>nextPage()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="104"
+                                    class="link-to-prism">src/app/components/reports/reports.ts:104</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>nextPage - function to allow user to navigate to a next pae of reports, if page &lt; lasstPage</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="61"
+                                    class="link-to-prism">src/app/components/reports/reports.ts:61</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Intialize function for reports component
+GETS reports from backend and db using page number and stores reports in reportList to be displayed
+stores current page number in sessionStorage to allow user to return to page after viewing report</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="previousPage"></a>
+                    <span class="name">
+                        <span ><b>previousPage</b></span>
+                        <a href="#previousPage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>previousPage()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="84"
+                                    class="link-to-prism">src/app/components/reports/reports.ts:84</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>previousPage - function to allow user to navigate to a previous pae of reports, if page &gt; 1</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="lastPage"></a>
+                    <span class="name">
+                        <span ><b>lastPage</b></span>
+                        <a href="#lastPage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>1</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/components/reports/reports.ts:44</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>lastPage - variable used to stop users from going to next page if there are no more reports to display</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="page"></a>
+                    <span class="name">
+                        <span ><b>page</b></span>
+                        <a href="#page"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>1</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/components/reports/reports.ts:34</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>page - variavble to store current page number for pagintation</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="pageSize"></a>
+                    <span class="name">
+                        <span ><b>pageSize</b></span>
+                        <a href="#pageSize"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>10</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/components/reports/reports.ts:39</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>pageSize - limit to how many reports to display per page</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="reportList"></a>
+                    <span class="name">
+                        <span ><b>reportList</b></span>
+                        <a href="#reportList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/components/reports/reports.ts:24</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>reportList - variable to store reports retrieved from the backend</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="totalReports"></a>
+                    <span class="name">
+                        <span ><b>totalReports</b></span>
+                        <a href="#totalReports"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/components/reports/reports.ts:29</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>totalReports - variable to store total number of reports retireved</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { RouterModule, Router } from &#x27;@angular/router&#x27;;
+import { WebService } from &#x27;../../services/web-service&#x27;;
+import { map, Observable } from &#x27;rxjs&#x27;;
+import { ToastService } from &#x27;../../services/toast-service&#x27;;
+
+/**
+ * Reports Component for Application
+ */
+@Component({
+  selector: &#x27;app-reports&#x27;,
+  imports: [RouterModule, CommonModule,],
+  providers: [WebService],
+  templateUrl: &#x27;./reports.html&#x27;,
+  styleUrl: &#x27;./reports.css&#x27;,
+})
+
+export class Reports 
+{
+  /**
+   * reportList - variable to store reports retrieved from the backend
+   */
+  reportList: any &#x3D; [];
+
+  /**
+   * totalReports - variable to store total number of reports retireved
+   */
+  totalReports: number &#x3D; 0;
+
+  /**
+   * page - variavble to store current page number for pagintation
+   */
+  page: number &#x3D; 1;
+
+  /**
+   * pageSize - limit to how many reports to display per page
+   */
+  pageSize: number &#x3D; 10;
+
+  /**
+   * lastPage - variable used to stop users from going to next page if there are no more reports to display
+   */
+  lastPage: number &#x3D; 1;
+
+  /**
+   * Constructor for report.ts file
+   * @param webService, used to perform GETs request to backend
+   * @param toast, global service used for success and error messages
+   */
+  constructor(protected webService: WebService, private toast: ToastService)
+  {
+
+  }
+
+  /**
+   * Intialize function for reports component
+   * GETS reports from backend and db using page number and stores reports in reportList to be displayed
+   * stores current page number in sessionStorage to allow user to return to page after viewing report
+   */
+  ngOnInit()
+  {
+    //this.lastPage &#x3D; this.getLastPage();
+    if(sessionStorage[&#x27;page&#x27;])
+    {
+      this.page &#x3D; Number(sessionStorage[&#x27;page&#x27;]);
+    }
+
+    this.webService.getReports(this.page).subscribe((response) &#x3D;&gt;
+    {
+      this.reportList &#x3D; response.reports;
+      this.totalReports &#x3D; response.totalReports;
+      this.lastPage &#x3D; Math.ceil(this.totalReports / this.webService.pageSize);
+    },
+    (error) &#x3D;&gt;
+    {
+      this.toast.add(&#x27;Error. Unable to load Safety Reports.&#x27;)
+    });
+  }
+
+  /**
+   * previousPage - function to allow user to navigate to a previous pae of reports, if page &gt; 1
+   */
+  previousPage()
+  {
+    if(this.page &gt; 1)
+    {
+      this.page &#x3D; this.page - 1;
+      sessionStorage[&#x27;page&#x27;] &#x3D; this.page;
+      this.webService.getReports(this.page).subscribe((response: any) &#x3D;&gt;
+      {
+        this.reportList &#x3D; response.reports;
+      },
+      (error) &#x3D;&gt;
+      {
+        this.toast.add(&#x27;Error. Unable to load Safety Reports.&#x27;)
+      });
+    }
+  }
+
+  /**
+   * nextPage - function to allow user to navigate to a next pae of reports, if page &lt; lasstPage
+   */
+  nextPage()
+  {
+    if(this.page &lt; this.lastPage)
+    {
+      this.page &#x3D; this.page + 1;
+      sessionStorage[&#x27;page&#x27;] &#x3D; this.page;
+      this.webService.getReports(this.page).subscribe((response: any) &#x3D;&gt;
+      {
+        this.reportList &#x3D; response.reports;
+      },
+      (error) &#x3D;&gt;
+      {
+        this.toast.add(&#x27;Error. Unable to load Safety Reports.&#x27;)
+      });
+    } 
+  }
+
+  //getLastPage()
+  //{
+  //  return Math.ceil(this.reportList.totalReports / this.webService.pageSize);
+  //}
+
+  /**
+   * getTextClass - function to set text colour of safety verdict and safety score based on safety score value
+   * @param score - safety score of the report used to determine colour of the text
+   * @returns if score &gt;&#x3D; 70 returns text-success (green), if score &gt;&#x3D; 40 returns text-warning (orange) and if score &lt; 40 returns text-danger (red)
+   */
+  getTextClass(score: number): string 
+  {
+    if (score &gt;&#x3D; 70) return &#x27;text-success&#x27;;
+    if (score &gt;&#x3D; 40) return &#x27;text-warning&#x27;;
+    return &#x27;text-danger&#x27;;
+  }
+}
+
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container&quot;&gt;
+    &lt;div class&#x3D;&quot;row&quot;&gt;
+        &lt;div class&#x3D;&quot;col-sm-12&quot;&gt;
+            &lt;div class&#x3D;&quot;title&quot;&gt; &lt;!--Title for reports Page--&gt;
+                &lt;h1&gt;Safety Reports&lt;/h1&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;container reports&quot;&gt; &lt;!--Container for reports page--&gt;
+    &lt;div class&#x3D;&quot;row&quot;&gt;
+        &lt;div class&#x3D;&quot;col-sm-12&quot;&gt; &lt;!--Track reports--&gt;
+            @for(report of reportList; track report.url) { &lt;!-- Card for reports - likn to report page by geting report id--&gt;
+                &lt;div class&#x3D;&quot;card  shadow-sm&quot; style&#x3D;&quot;cursor: pointer&quot; [routerLink]&#x3D;&quot;[&#x27;/reports&#x27;, report._id]&quot; 
+                     [ngClass]&#x3D;&quot;report.verdict &#x3D;&#x3D;&#x3D; &#x27;SAFE&#x27; ? &#x27;border-success&#x27; : &#x27;border-danger&#x27;&quot;&gt;
+                    &lt;!--Card - flex to align center and transparent background--&gt;
+                    &lt;div class&#x3D;&quot;card-header bg-transparent d-flex justify-content-between align-items-center&quot;&gt;
+                        &lt;strong class&#x3D;&quot;text-truncate&quot; style&#x3D;&quot;max-width: 85%;&quot;&gt;
+                            &lt;span class&#x3D;&quot;sm-2&quot;&gt;{{ report.url }}&lt;/span&gt;&lt;!--URL of the report--&gt;
+                        &lt;/strong&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;card-body&quot;&gt; &lt;!-- Card body - align text center--&gt;
+                        &lt;div class&#x3D;&quot;row align-items-center&quot;&gt;
+                            &lt;div class&#x3D;&quot;col-8 text-start&quot;&gt;
+                                &lt;h5 class&#x3D;&quot;card-title&quot;&gt;
+                                    &lt;strong&gt;Verdict:&lt;/strong&gt; &lt;!-- verdict of report - getTextClass to set text colour--&gt;
+                                    &lt;span [ngClass]&#x3D;&quot;getTextClass(report.safetyScore)&quot;&gt;
+                                        {{ report.verdict }}
+                                    &lt;/span&gt;
+                                &lt;/h5&gt;
+                                &lt;p class&#x3D;&quot;card-text sm-1&quot;&gt; &lt;!-- Result of api check--&gt;
+                                    &lt;strong&gt;Google Safe Browsing:&lt;/strong&gt; {{ report.analysis.api }}
+                                &lt;/p&gt;
+                                &lt;p class&#x3D;&quot;card-text&quot;&gt; &lt;!--Result of ssCert checck--&gt;
+                                    &lt;strong&gt;SSL Certificate:&lt;/strong&gt; {{ report.analysis.sslCert }}
+                                &lt;/p&gt;
+                            &lt;/div&gt;
+                            &lt;div class&#x3D;&quot;col-4 text-center border-start&quot;&gt; &lt;!-- safety score of report - getTextClass to set text colour--&gt;
+                                &lt;div class&#x3D;&quot;display-4 fw-bold&quot; [ngClass]&#x3D;&quot;getTextClass(report.safetyScore)&quot;&gt;
+                                    {{ report.safetyScore }}
+                                &lt;/div&gt;
+                                &lt;div class&#x3D;&quot;text-muted small&quot;&gt;Safety Score&lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;card-footer bg-transparent border-0 text-end&quot;&gt;
+                        &lt;p&gt;Read Full Report&lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            }
+            &lt;div class&#x3D;&quot;row&quot;&gt;
+                &lt;div class&#x3D;&quot;btns&quot;&gt;&lt;!--Buttons container--&gt;
+                    &lt;div class&#x3D;&quot;btnPrev&quot;&gt;&lt;!-- Previous button - navigate to previous page of reports--&gt;
+                        &lt;button class&#x3D;&quot;btn btn-primary btn-prev&quot; (click)&#x3D;&quot;previousPage()&quot;&gt;
+                            Previous
+                        &lt;/button&gt;
+                    &lt;/div&gt; &lt;!--Display - current page and last page--&gt;
+                    &lt;label&gt;Page {{this.page}} of {{this.lastPage}}&lt;/label&gt;
+                    &lt;div class&#x3D;&quot;btnNext&quot;&gt;&lt;!-- Next button - navigate to next page of reports--&gt;
+                        &lt;button class&#x3D;&quot;btn btn-primary btn-next&quot; (click)&#x3D;&quot;nextPage()&quot;&gt;
+                            Next
+                        &lt;/button&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis-network.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="container">    <div class="row">        <div class="col-sm-12">            <div class="title"> <!--Title for reports Page-->                <h1>Safety Reports</h1>            </div>        </div>    </div></div><div class="container reports"> <!--Container for reports page-->    <div class="row">        <div class="col-sm-12"> <!--Track reports-->            @for(report of reportList; track report.url) { <!-- Card for reports - likn to report page by geting report id-->                <div class="card  shadow-sm" style="cursor: pointer" [routerLink]="[\'/reports\', report._id]"                      [ngClass]="report.verdict === \'SAFE\' ? \'border-success\' : \'border-danger\'">                    <!--Card - flex to align center and transparent background-->                    <div class="card-header bg-transparent d-flex justify-content-between align-items-center">                        <strong class="text-truncate" style="max-width: 85%;">                            <span class="sm-2">{{ report.url }}</span><!--URL of the report-->                        </strong>                    </div>                    <div class="card-body"> <!-- Card body - align text center-->                        <div class="row align-items-center">                            <div class="col-8 text-start">                                <h5 class="card-title">                                    <strong>Verdict:</strong> <!-- verdict of report - getTextClass to set text colour-->                                    <span [ngClass]="getTextClass(report.safetyScore)">                                        {{ report.verdict }}                                    </span>                                </h5>                                <p class="card-text sm-1"> <!-- Result of api check-->                                    <strong>Google Safe Browsing:</strong> {{ report.analysis.api }}                                </p>                                <p class="card-text"> <!--Result of ssCert checck-->                                    <strong>SSL Certificate:</strong> {{ report.analysis.sslCert }}                                </p>                            </div>                            <div class="col-4 text-center border-start"> <!-- safety score of report - getTextClass to set text colour-->                                <div class="display-4 fw-bold" [ngClass]="getTextClass(report.safetyScore)">                                    {{ report.safetyScore }}                                </div>                                <div class="text-muted small">Safety Score</div>                            </div>                        </div>                    </div>                    <div class="card-footer bg-transparent border-0 text-end">                        <p>Read Full Report</p>                    </div>                </div>            }            <div class="row">                <div class="btns"><!--Buttons container-->                    <div class="btnPrev"><!-- Previous button - navigate to previous page of reports-->                        <button class="btn btn-primary btn-prev" (click)="previousPage()">                            Previous                        </button>                    </div> <!--Display - current page and last page-->                    <label>Page {{this.page}} of {{this.lastPage}}</label>                    <div class="btnNext"><!-- Next button - navigate to next page of reports-->                        <button class="btn btn-primary btn-next" (click)="nextPage()">                            Next                        </button>                    </div>                </div>            </div>        </div>    </div></div></div>'
+    var COMPONENTS = [{'name': 'Admin', 'selector': 'app-admin'},{'name': 'App', 'selector': 'app-root'},{'name': 'Createuser', 'selector': 'app-createuser'},{'name': 'ForgotPassword', 'selector': 'app-forgot-password'},{'name': 'Login', 'selector': 'app-login'},{'name': 'Navigation', 'selector': 'app-navigation'},{'name': 'Report', 'selector': 'app-report'},{'name': 'ReportInfo', 'selector': 'app-report-info'},{'name': 'Reports', 'selector': 'app-reports'},{'name': 'ResetPassword', 'selector': 'app-reset-password'},{'name': 'SubmitURL', 'selector': 'app-submit-url'},{'name': 'TestWebService', 'selector': 'app-test-web-service'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'Reports'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'Reports.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
